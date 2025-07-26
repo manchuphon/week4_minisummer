@@ -1,23 +1,558 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-    <title>Todo App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Todo App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .add-todo-form {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #e9ecef;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-delete {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            padding: 8px 15px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+            padding: 8px 15px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .filter-tab {
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .filter-tab:hover:not(.active) {
+            background: #e9ecef;
+        }
+
+        .todo-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .todo-item {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .todo-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .todo-item.overdue {
+            border-left: 5px solid #ff6b6b;
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 10%);
+        }
+
+        .todo-item.due-today {
+            border-left: 5px solid #feca57;
+            background: linear-gradient(135deg, #fffbf0 0%, #fef5e7 10%);
+        }
+
+        .todo-item.upcoming {
+            border-left: 5px solid #48bb78;
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 10%);
+        }
+
+        .todo-task {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .todo-due {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .due-date {
+            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .due-date.overdue {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .due-date.due-today {
+            background: #feca57;
+            color: #744210;
+        }
+
+        .due-date.upcoming {
+            background: #48bb78;
+            color: white;
+        }
+
+        .todo-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .no-todos {
+            text-align: center;
+            padding: 50px;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: #6c757d;
+        }
+
+        .edit-form {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .edit-form.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .filter-tabs {
+                flex-direction: column;
+            }
+            
+            .todo-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Simple Todo App</h1>
+    <div class="container">
+        <div class="header">
+            <h1>📅 Personal Todo</h1>
+            <p>จัดการงานของคุณอย่างมีประสิทธิภาพ พร้อม due date</p>
+        </div>
+        
+        <div class="content">
+            <!-- Add Todo Form -->
+            <div class="add-todo-form">
+                <h3 style="margin-bottom: 20px; color: #495057;">🎯 เพิ่มงานใหม่</h3>
+                <form id="addTodoForm">
+                    <div class="form-group">
+                        <label for="taskInput">รายละเอียดงาน</label>
+                        <input type="text" id="taskInput" placeholder="เช่น: ทำรายงานประจำเดือน" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueInput">วันครบกำหนด</label>
+                        <input type="date" id="dueInput" required>
+                    </div>
+                    <button type="submit" class="btn">✨ เพิ่มงาน</button>
+                </form>
+            </div>
 
-    <form action="/create-todo" method="post">
-        <input type="text" name="item" placeholder="Enter a new todo" required>
-        <button type="submit">Add</button>
-    </form>
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">📋 ทั้งหมด</button>
+                <button class="filter-tab" data-filter="upcoming">⏰ ยังไม่ครบกำหนด</button>
+                <button class="filter-tab" data-filter="overdue">🔥 เลยกำหนด</button>
+            </div>
 
-    <h2>Todo List:</h2>
-    <ul>
-        {% for todo in todos %}
-            <li>{{ todo }}</li>
-        {% else %}
-            <li>No todos yet!</li>
-        {% endfor %}
-    </ul>
+            <!-- Todo List -->
+            <div id="todoList" class="todo-list">
+                <div class="loading">กำลังโหลดข้อมูล...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class TodoApp {
+            constructor() {
+                this.currentFilter = 'all';
+                this.todos = [];
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.loadTodos();
+                this.setDefaultDate();
+            }
+
+            bindEvents() {
+                // Add todo form
+                document.getElementById('addTodoForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.addTodo();
+                });
+
+                // Filter tabs
+                document.querySelectorAll('.filter-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        this.setActiveFilter(e.target.dataset.filter);
+                    });
+                });
+            }
+
+            setDefaultDate() {
+                const today = new Date();
+                today.setDate(today.getDate() + 1); // Default to tomorrow
+                document.getElementById('dueInput').value = today.toISOString().split('T')[0];
+            }
+
+            async loadTodos() {
+                try {
+                    const endpoint = this.currentFilter === 'upcoming' ? '/todos/upcoming' : '/todos';
+                    const response = await fetch(endpoint);
+                    this.todos = await response.json();
+                    this.renderTodos();
+                } catch (error) {
+                    console.error('Error loading todos:', error);
+                    this.showError('ไม่สามารถโหลดข้อมูลได้');
+                }
+            }
+
+            async addTodo() {
+                const task = document.getElementById('taskInput').value.trim();
+                const due = document.getElementById('dueInput').value;
+
+                if (!task || !due) return;
+
+                try {
+                    const response = await fetch('/todos', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ task, due })
+                    });
+
+                    if (response.ok) {
+                        document.getElementById('taskInput').value = '';
+                        this.setDefaultDate();
+                        this.loadTodos();
+                        this.showSuccess('เพิ่มงานสำเร็จ!');
+                    } else {
+                        throw new Error('Failed to add todo');
+                    }
+                } catch (error) {
+                    console.error('Error adding todo:', error);
+                    this.showError('ไม่สามารถเพิ่มงานได้');
+                }
+            }
+
+            async deleteTodo(id) {
+                if (!confirm('คุณแน่ใจหรือไม่ที่จะลบงานนี้?')) return;
+
+                try {
+                    const response = await fetch(`/todos/${id}`, { method: 'DELETE' });
+                    if (response.ok) {
+                        this.loadTodos();
+                        this.showSuccess('ลบงานสำเร็จ!');
+                    } else {
+                        throw new Error('Failed to delete todo');
+                    }
+                } catch (error) {
+                    console.error('Error deleting todo:', error);
+                    this.showError('ไม่สามารถลบงานได้');
+                }
+            }
+
+            async updateTodo(id, task, due) {
+                try {
+                    const response = await fetch(`/todos/${id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ task, due })
+                    });
+
+                    if (response.ok) {
+                        this.loadTodos();
+                        this.showSuccess('แก้ไขงานสำเร็จ!');
+                    } else {
+                        throw new Error('Failed to update todo');
+                    }
+                } catch (error) {
+                    console.error('Error updating todo:', error);
+                    this.showError('ไม่สามารถแก้ไขงานได้');
+                }
+            }
+
+            setActiveFilter(filter) {
+                this.currentFilter = filter;
+                
+                // Update active tab
+                document.querySelectorAll('.filter-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelector(`[data-filter="${filter}"]`).classList.add('active');
+                
+                this.loadTodos();
+            }
+
+            renderTodos() {
+                const todoList = document.getElementById('todoList');
+                
+                let filteredTodos = [...this.todos];
+                const today = new Date().toISOString().split('T')[0];
+
+                // Apply additional filtering for client-side filters
+                if (this.currentFilter === 'overdue') {
+                    filteredTodos = this.todos.filter(todo => todo.due < today);
+                }
+
+                if (filteredTodos.length === 0) {
+                    todoList.innerHTML = `
+                        <div class="no-todos">
+                            ${this.currentFilter === 'upcoming' ? '🎉 ไม่มีงานที่ใกล้ครบกำหนด!' : 
+                              this.currentFilter === 'overdue' ? '👍 ไม่มีงานที่เลยกำหนด!' : 
+                              '📝 ยังไม่มีงานในรายการ'}
+                        </div>
+                    `;
+                    return;
+                }
+
+                todoList.innerHTML = filteredTodos.map(todo => {
+                    const dueDate = new Date(todo.due);
+                    const todayDate = new Date(today);
+                    const statusClass = this.getStatusClass(todo.due, today);
+                    const statusText = this.getStatusText(todo.due, today);
+
+                    return `
+                        <div class="todo-item ${statusClass}">
+                            <div class="todo-task">${this.escapeHtml(todo.task)}</div>
+                            <div class="todo-due">
+                                <span class="due-date ${statusClass}">
+                                    📅 ${this.formatDate(todo.due)} ${statusText}
+                                </span>
+                                <div class="todo-actions">
+                                    <button class="btn btn-edit" onclick="app.toggleEditForm(${todo.id})">
+                                        ✏️ แก้ไข
+                                    </button>
+                                    <button class="btn btn-delete" onclick="app.deleteTodo(${todo.id})">
+                                        🗑️ ลบ
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="edit-form" id="editForm${todo.id}">
+                                <div class="form-group">
+                                    <input type="text" id="editTask${todo.id}" value="${this.escapeHtml(todo.task)}" placeholder="รายละเอียดงาน">
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" id="editDue${todo.id}" value="${todo.due}">
+                                </div>
+                                <button class="btn" onclick="app.saveEdit(${todo.id})">💾 บันทึก</button>
+                                <button class="btn btn-delete" onclick="app.toggleEditForm(${todo.id})">❌ ยกเลิก</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            toggleEditForm(id) {
+                const form = document.getElementById(`editForm${id}`);
+                form.classList.toggle('active');
+            }
+
+            saveEdit(id) {
+                const task = document.getElementById(`editTask${id}`).value.trim();
+                const due = document.getElementById(`editDue${id}`).value;
+                
+                if (!task || !due) {
+                    alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+                    return;
+                }
+
+                this.updateTodo(id, task, due);
+                this.toggleEditForm(id);
+            }
+
+            getStatusClass(dueDate, today) {
+                if (dueDate < today) return 'overdue';
+                if (dueDate === today) return 'due-today';
+                return 'upcoming';
+            }
+
+            getStatusText(dueDate, today) {
+                if (dueDate < today) return '(เลยกำหนดแล้ว)';
+                if (dueDate === today) return '(วันนี้)';
+                
+                const diffTime = new Date(dueDate) - new Date(today);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                return `(อีก ${diffDays} วัน)`;
+            }
+
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                const options = { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric',
+                    weekday: 'short'
+                };
+                return date.toLocaleDateString('th-TH', options);
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            showSuccess(message) {
+                // Simple success notification - could be enhanced with a toast library
+                alert(`✅ ${message}`);
+            }
+
+            showError(message) {
+                // Simple error notification - could be enhanced with a toast library
+                alert(`❌ ${message}`);
+            }
+        }
+
+        // Initialize app
+        const app = new TodoApp();
+    </script>
 </body>
 </html>

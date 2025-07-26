@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "task": "project 1",
+      "due": "2025-10-01"
+    },
+    {
+      "id": 2,
+      "task": "รายงานงบการเงิน",
+      "due": "2025-07-26"
+    },
+    {
+      "id": 3,
+      "task": "read book",
+      "due": "2025-05-07"
+    },
+    {
+      "id": 4,
+      "task": "slide presentasion",
+      "due": "2025-01-01"
+    }
+  ],
+  "next_id": 5
+}
