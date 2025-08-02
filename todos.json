@@ -1,14 +1,9 @@
 {
   "todos": [
     {
-      "id": 1,
-      "task": "project 1",
-      "due": "2025-10-01"
-    },
-    {
       "id": 2,
       "task": "รายงานงบการเงิน",
-      "due": "2025-07-26"
+      "due": "2025-12-25"
     },
     {
       "id": 3,
@@ -19,7 +14,27 @@
       "id": 4,
       "task": "slide presentasion",
       "due": "2025-01-01"
+    },
+    {
+      "id": 6,
+      "task": "mini project",
+      "due": "2025-05-06"
+    },
+    {
+      "id": 7,
+      "task": "YOU",
+      "due": "2025-08-03"
+    },
+    {
+      "id": 8,
+      "task": "mini project 5",
+      "due": "2025-08-04"
+    },
+    {
+      "id": 9,
+      "task": "mini project88",
+      "due": "2025-08-02"
     }
   ],
-  "next_id": 5
+  "next_id": 10
 }

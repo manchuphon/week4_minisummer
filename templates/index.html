@@ -12,228 +12,288 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: #f6f8fa;
+            color: #1f2328;
+            line-height: 1.5;
             min-height: 100vh;
-            padding: 20px;
+            padding: 24px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
             text-align: center;
+            margin-bottom: 32px;
+            padding: 24px 0;
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 600;
+            color: #1f2328;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
 
         .header p {
-            opacity: 0.9;
-            font-size: 1.1rem;
+            color: #656d76;
+            font-size: 16px;
         }
 
         .content {
-            padding: 30px;
+            display: grid;
+            gap: 24px;
         }
 
         .add-todo-form {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 2px solid #e9ecef;
+            background: #ffffff;
+            border: 1px solid #d1d9e0;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(16, 22, 26, 0.1);
+        }
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2328;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: end;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 8px;
+            font-size: 14px;
             font-weight: 600;
-            color: #495057;
+            color: #1f2328;
         }
 
         .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #dee2e6;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+            padding: 8px 12px;
+            border: 1px solid #d1d9e0;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #ffffff;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #0969da;
+            box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid transparent;
+            border-radius: 6px;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.15s ease-in-out;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        .btn-primary {
+            background-color: #1f883d;
+            color: #ffffff;
+            border-color: rgba(31, 136, 61, 0.1);
         }
 
-        .btn-delete {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-            padding: 8px 15px;
-            font-size: 14px;
-            margin-left: 10px;
+        .btn-primary:hover {
+            background-color: #1a7f37;
+            border-color: rgba(31, 136, 61, 0.15);
         }
 
-        .btn-edit {
-            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
-            padding: 8px 15px;
-            font-size: 14px;
-            margin-left: 5px;
+        .btn-secondary {
+            background-color: #f6f8fa;
+            color: #1f2328;
+            border-color: #d1d9e0;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f3f4f6;
+            border-color: #afb8c1;
+        }
+
+        .btn-danger {
+            background-color: #ffffff;
+            color: #d1242f;
+            border-color: #d1d9e0;
+        }
+
+        .btn-danger:hover {
+            background-color: #d1242f;
+            color: #ffffff;
+            border-color: #d1242f;
+        }
+
+        .btn-sm {
+            padding: 4px 8px;
+            font-size: 12px;
         }
 
         .filter-tabs {
             display: flex;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #ffffff;
+            border: 1px solid #d1d9e0;
+            border-radius: 12px;
+            padding: 6px;
+            gap: 4px;
+            box-shadow: 0 1px 3px rgba(16, 22, 26, 0.1);
         }
 
         .filter-tab {
             flex: 1;
-            padding: 15px;
-            background: #f8f9fa;
+            padding: 8px 16px;
+            background: transparent;
             border: none;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            color: #656d76;
+            transition: all 0.15s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         .filter-tab.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background-color: #0969da;
+            color: #ffffff;
         }
 
         .filter-tab:hover:not(.active) {
-            background: #e9ecef;
+            background-color: #f6f8fa;
+            color: #1f2328;
         }
 
         .todo-list {
             display: grid;
-            gap: 15px;
+            gap: 1px;
+            background: #d1d9e0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(16, 22, 26, 0.1);
         }
 
         .todo-item {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 15px;
-            padding: 20px;
-            transition: all 0.3s ease;
+            background: #ffffff;
+            padding: 16px;
+            transition: background-color 0.15s ease-in-out;
             position: relative;
         }
 
         .todo-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: #f6f8fa;
         }
 
         .todo-item.overdue {
-            border-left: 5px solid #ff6b6b;
-            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 10%);
+            border-left: 3px solid #d1242f;
         }
 
         .todo-item.due-today {
-            border-left: 5px solid #feca57;
-            background: linear-gradient(135deg, #fffbf0 0%, #fef5e7 10%);
+            border-left: 3px solid #fb8500;
         }
 
         .todo-item.upcoming {
-            border-left: 5px solid #48bb78;
-            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 10%);
+            border-left: 3px solid #1f883d;
+        }
+
+        .todo-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 8px;
         }
 
         .todo-task {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
-
-        .todo-due {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .due-date {
-            font-size: 14px;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .due-date.overdue {
-            background: #ff6b6b;
-            color: white;
-        }
-
-        .due-date.due-today {
-            background: #feca57;
-            color: #744210;
-        }
-
-        .due-date.upcoming {
-            background: #48bb78;
-            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1f2328;
+            flex: 1;
+            line-height: 1.4;
         }
 
         .todo-actions {
             display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .todo-meta {
+            display: flex;
             align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #656d76;
         }
 
-        .no-todos {
-            text-align: center;
-            padding: 50px;
-            color: #6c757d;
-            font-size: 1.2rem;
+        .due-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
         }
 
-        .loading {
-            text-align: center;
-            padding: 30px;
-            color: #6c757d;
+        .due-date.overdue {
+            background-color: #ffebee;
+            color: #d1242f;
+        }
+
+        .due-date.due-today {
+            background-color: #fff4e6;
+            color: #fb8500;
+        }
+
+        .due-date.upcoming {
+            background-color: #f0f9f4;
+            color: #1f883d;
         }
 
         .edit-form {
-            margin-top: 15px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
+            margin-top: 12px;
+            padding: 12px;
+            background-color: #f6f8fa;
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
             display: none;
         }
 
@@ -241,64 +301,159 @@
             display: block;
         }
 
+        .edit-form .form-row {
+            margin-bottom: 12px;
+        }
+
+        .edit-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .no-todos {
+            text-align: center;
+            padding: 64px 24px;
+            color: #656d76;
+            background: #ffffff;
+        }
+
+        .no-todos-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .no-todos-text {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .no-todos-subtitle {
+            font-size: 14px;
+            color: #8c959f;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 32px;
+            color: #656d76;
+            background: #ffffff;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
         @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                border-radius: 15px;
-            }
-            
-            .header {
-                padding: 20px;
+            body {
+                padding: 16px;
             }
             
             .header h1 {
-                font-size: 2rem;
+                font-size: 24px;
             }
             
-            .content {
-                padding: 20px;
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
             }
             
             .filter-tabs {
                 flex-direction: column;
+                padding: 8px;
+            }
+            
+            .todo-header {
+                flex-direction: column;
+                gap: 12px;
             }
             
             .todo-actions {
-                flex-direction: column;
-                gap: 10px;
+                align-self: flex-start;
             }
+        }
+
+        /* Icon styles */
+        .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📅 Personal Todo</h1>
+            <h1>
+                <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+                    <path d="M1.5 8a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0ZM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Z"></path>
+                </svg>
+                Personal Todo
+            </h1>
             <p>จัดการงานของคุณอย่างมีประสิทธิภาพ พร้อม due date</p>
         </div>
         
         <div class="content">
             <!-- Add Todo Form -->
             <div class="add-todo-form">
-                <h3 style="margin-bottom: 20px; color: #495057;">🎯 เพิ่มงานใหม่</h3>
+                <div class="form-header">
+                    <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path>
+                    </svg>
+                    เพิ่มงานใหม่
+                </div>
                 <form id="addTodoForm">
-                    <div class="form-group">
-                        <label for="taskInput">รายละเอียดงาน</label>
-                        <input type="text" id="taskInput" placeholder="เช่น: ทำรายงานประจำเดือน" required>
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="taskInput">รายละเอียดงาน</label>
+                                <input type="text" id="taskInput" placeholder="เช่น: ทำรายงานประจำเดือน" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dueInput">วันครบกำหนด</label>
+                                <input type="date" id="dueInput" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path>
+                            </svg>
+                            เพิ่มงาน
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label for="dueInput">วันครบกำหนด</label>
-                        <input type="date" id="dueInput" required>
-                    </div>
-                    <button type="submit" class="btn">✨ เพิ่มงาน</button>
                 </form>
             </div>
 
             <!-- Filter Tabs -->
             <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="all">📋 ทั้งหมด</button>
-                <button class="filter-tab" data-filter="upcoming">⏰ ยังไม่ครบกำหนด</button>
-                <button class="filter-tab" data-filter="overdue">🔥 เลยกำหนด</button>
+                <button class="filter-tab active" data-filter="all">
+                    <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M2 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4Zm1 0v8h10V4H3Z"></path>
+                        <path d="M5 6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5ZM5.5 8a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3Z"></path>
+                    </svg>
+                    ทั้งหมด
+                </button>
+                <button class="filter-tab" data-filter="upcoming">
+                    <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"></path>
+                    </svg>
+                    ยังไม่ครบกำหนด
+                </button>
+                <button class="filter-tab" data-filter="overdue">
+                    <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+                    </svg>
+                    เลยกำหนด
+                </button>
             </div>
 
             <!-- Todo List -->
@@ -344,15 +499,16 @@
             }
 
             async loadTodos() {
-                try {
-                    const endpoint = this.currentFilter === 'upcoming' ? '/todos/upcoming' : '/todos';
-                    const response = await fetch(endpoint);
-                    this.todos = await response.json();
+                // Simulate loading data since we don't have a backend
+                setTimeout(() => {
+                    // Mock data for demonstration
+                    this.todos = [
+                        { id: 1, task: "ทำรายงานประจำเดือน", due: "2025-08-03" },
+                        { id: 2, task: "ประชุมทีมงาน", due: "2025-08-02" },
+                        { id: 3, task: "ส่งเอกสารให้ลูกค้า", due: "2025-08-01" }
+                    ];
                     this.renderTodos();
-                } catch (error) {
-                    console.error('Error loading todos:', error);
-                    this.showError('ไม่สามารถโหลดข้อมูลได้');
-                }
+                }, 500);
             }
 
             async addTodo() {
@@ -361,61 +517,34 @@
 
                 if (!task || !due) return;
 
-                try {
-                    const response = await fetch('/todos', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ task, due })
-                    });
+                // Add to mock data
+                const newTodo = {
+                    id: Date.now(),
+                    task,
+                    due
+                };
+                this.todos.push(newTodo);
 
-                    if (response.ok) {
-                        document.getElementById('taskInput').value = '';
-                        this.setDefaultDate();
-                        this.loadTodos();
-                        this.showSuccess('เพิ่มงานสำเร็จ!');
-                    } else {
-                        throw new Error('Failed to add todo');
-                    }
-                } catch (error) {
-                    console.error('Error adding todo:', error);
-                    this.showError('ไม่สามารถเพิ่มงานได้');
-                }
+                document.getElementById('taskInput').value = '';
+                this.setDefaultDate();
+                this.renderTodos();
+                this.showSuccess('เพิ่มงานสำเร็จ!');
             }
 
             async deleteTodo(id) {
                 if (!confirm('คุณแน่ใจหรือไม่ที่จะลบงานนี้?')) return;
 
-                try {
-                    const response = await fetch(`/todos/${id}`, { method: 'DELETE' });
-                    if (response.ok) {
-                        this.loadTodos();
-                        this.showSuccess('ลบงานสำเร็จ!');
-                    } else {
-                        throw new Error('Failed to delete todo');
-                    }
-                } catch (error) {
-                    console.error('Error deleting todo:', error);
-                    this.showError('ไม่สามารถลบงานได้');
-                }
+                this.todos = this.todos.filter(todo => todo.id !== id);
+                this.renderTodos();
+                this.showSuccess('ลบงานสำเร็จ!');
             }
 
             async updateTodo(id, task, due) {
-                try {
-                    const response = await fetch(`/todos/${id}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ task, due })
-                    });
-
-                    if (response.ok) {
-                        this.loadTodos();
-                        this.showSuccess('แก้ไขงานสำเร็จ!');
-                    } else {
-                        throw new Error('Failed to update todo');
-                    }
-                } catch (error) {
-                    console.error('Error updating todo:', error);
-                    this.showError('ไม่สามารถแก้ไขงานได้');
+                const todoIndex = this.todos.findIndex(todo => todo.id === id);
+                if (todoIndex !== -1) {
+                    this.todos[todoIndex] = { ...this.todos[todoIndex], task, due };
+                    this.renderTodos();
+                    this.showSuccess('แก้ไขงานสำเร็จ!');
                 }
             }
 
@@ -428,7 +557,7 @@
                 });
                 document.querySelector(`[data-filter="${filter}"]`).classList.add('active');
                 
-                this.loadTodos();
+                this.renderTodos();
             }
 
             renderTodos() {
@@ -437,57 +566,104 @@
                 let filteredTodos = [...this.todos];
                 const today = new Date().toISOString().split('T')[0];
 
-                // Apply additional filtering for client-side filters
+                // Apply filtering
                 if (this.currentFilter === 'overdue') {
                     filteredTodos = this.todos.filter(todo => todo.due < today);
+                } else if (this.currentFilter === 'upcoming') {
+                    filteredTodos = this.todos.filter(todo => todo.due >= today);
                 }
 
                 if (filteredTodos.length === 0) {
+                    const emptyState = this.getEmptyState();
                     todoList.innerHTML = `
                         <div class="no-todos">
-                            ${this.currentFilter === 'upcoming' ? '🎉 ไม่มีงานที่ใกล้ครบกำหนด!' : 
-                              this.currentFilter === 'overdue' ? '👍 ไม่มีงานที่เลยกำหนด!' : 
-                              '📝 ยังไม่มีงานในรายการ'}
+                            <div class="no-todos-icon">${emptyState.icon}</div>
+                            <div class="no-todos-text">${emptyState.title}</div>
+                            <div class="no-todos-subtitle">${emptyState.subtitle}</div>
                         </div>
                     `;
                     return;
                 }
 
                 todoList.innerHTML = filteredTodos.map(todo => {
-                    const dueDate = new Date(todo.due);
-                    const todayDate = new Date(today);
                     const statusClass = this.getStatusClass(todo.due, today);
                     const statusText = this.getStatusText(todo.due, today);
 
                     return `
                         <div class="todo-item ${statusClass}">
-                            <div class="todo-task">${this.escapeHtml(todo.task)}</div>
-                            <div class="todo-due">
-                                <span class="due-date ${statusClass}">
-                                    📅 ${this.formatDate(todo.due)} ${statusText}
-                                </span>
+                            <div class="todo-header">
+                                <div class="todo-task">${this.escapeHtml(todo.task)}</div>
                                 <div class="todo-actions">
-                                    <button class="btn btn-edit" onclick="app.toggleEditForm(${todo.id})">
-                                        ✏️ แก้ไข
+                                    <button class="btn btn-secondary btn-sm" onclick="app.toggleEditForm(${todo.id})">
+                                        <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>
+                                        </svg>
                                     </button>
-                                    <button class="btn btn-delete" onclick="app.deleteTodo(${todo.id})">
-                                        🗑️ ลบ
+                                    <button class="btn btn-danger btn-sm" onclick="app.deleteTodo(${todo.id})">
+                                        <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M11 1.75V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75ZM4.496 6.675l.66 6.6a.25.25 0 0 0 .249.225h5.19a.25.25 0 0 0 .249-.225l.66-6.6a.75.75 0 0 1 1.492.149l-.66 6.6A1.748 1.748 0 0 1 10.595 15h-5.19a1.748 1.748 0 0 1-1.741-1.575l-.66-6.6a.75.75 0 1 1 1.492-.15ZM6.5 1.75V3h3V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25Z"></path>
+                                        </svg>
                                     </button>
                                 </div>
                             </div>
+                            <div class="todo-meta">
+                                <span class="due-date ${statusClass}">
+                                    <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v11.5A1.75 1.75 0 0 1 13.25 17H2.75A1.75 1.75 0 0 1 1 15.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0Zm0 3.5h8.5a.25.25 0 0 1 .25.25V6h-11V3.75a.25.25 0 0 1 .25-.25h2Zm-2 4.75h11v7a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25v-7Z"></path>
+                                    </svg>
+                                    ${this.formatDate(todo.due)} ${statusText}
+                                </span>
+                            </div>
                             <div class="edit-form" id="editForm${todo.id}">
-                                <div class="form-group">
-                                    <input type="text" id="editTask${todo.id}" value="${this.escapeHtml(todo.task)}" placeholder="รายละเอียดงาน">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>รายละเอียดงาน</label>
+                                        <input type="text" id="editTask${todo.id}" value="${this.escapeHtml(todo.task)}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>วันครบกำหนด</label>
+                                        <input type="date" id="editDue${todo.id}" value="${todo.due}">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="date" id="editDue${todo.id}" value="${todo.due}">
+                                <div class="edit-actions">
+                                    <button class="btn btn-primary btn-sm" onclick="app.saveEdit(${todo.id})">
+                                        <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+                                        </svg>
+                                        บันทึก
+                                    </button>
+                                    <button class="btn btn-secondary btn-sm" onclick="app.toggleEditForm(${todo.id})">
+                                        <svg class="icon" viewBox="0 0 16 16" fill="currentColor">
+                                            <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
+                                        </svg>
+                                        ยกเลิก
+                                    </button>
                                 </div>
-                                <button class="btn" onclick="app.saveEdit(${todo.id})">💾 บันทึก</button>
-                                <button class="btn btn-delete" onclick="app.toggleEditForm(${todo.id})">❌ ยกเลิก</button>
                             </div>
                         </div>
                     `;
                 }).join('');
+            }
+
+            getEmptyState() {
+                const states = {
+                    all: {
+                        icon: '📝',
+                        title: 'ยังไม่มีงานในรายการ',
+                        subtitle: 'เริ่มต้นด้วยการเพิ่มงานแรกของคุณ'
+                    },
+                    upcoming: {
+                        icon: '🎉',
+                        title: 'ไม่มีงานที่ใกล้ครบกำหนด',
+                        subtitle: 'งานทั้งหมดได้รับการจัดการเรียบร้อยแล้ว'
+                    },
+                    overdue: {
+                        icon: '👍',
+                        title: 'ไม่มีงานที่เลยกำหนด',
+                        subtitle: 'คุณทำงานได้ตรงเวลาเป็นอย่างดี!'
+                    }
+                };
+                return states[this.currentFilter];
             }
 
             toggleEditForm(id) {
@@ -541,13 +717,106 @@
             }
 
             showSuccess(message) {
-                // Simple success notification - could be enhanced with a toast library
-                alert(`✅ ${message}`);
+                // Create a simple toast notification
+                this.showToast(message, 'success');
             }
 
             showError(message) {
-                // Simple error notification - could be enhanced with a toast library
-                alert(`❌ ${message}`);
+                this.showToast(message, 'error');
+            }
+
+            showToast(message, type) {
+                // Remove existing toast if any
+                const existingToast = document.querySelector('.toast');
+                if (existingToast) {
+                    existingToast.remove();
+                }
+
+                // Create toast element
+                const toast = document.createElement('div');
+                toast.className = `toast toast-${type}`;
+                toast.innerHTML = `
+                    <div class="toast-content">
+                        ${type === 'success' ? 
+                            '<svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>' :
+                            '<svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2.343 13.657A8 8 0 1 1 13.658 2.343 8 8 0 0 1 2.343 13.657ZM6.03 4.97a.751.751 0 0 0-1.042.018.751.751 0 0 0-.018 1.042L6.94 8 4.97 9.97a.749.749 0 0 0 .326 1.275.749.749 0 0 0 .734-.215L8 9.06l1.97 1.97a.749.749 0 0 0 1.275-.326.749.749 0 0 0-.215-.734L9.06 8l1.97-1.97a.749.749 0 0 0-.326-1.275.749.749 0 0 0-.734.215L8 6.94Z"></path></svg>'
+                        }
+                        <span>${message}</span>
+                    </div>
+                `;
+
+                // Add styles for toast
+                const style = document.createElement('style');
+                style.textContent = `
+                    .toast {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        z-index: 1000;
+                        background: #ffffff;
+                        border: 1px solid #d1d9e0;
+                        border-radius: 8px;
+                        box-shadow: 0 8px 24px rgba(16, 22, 26, 0.15);
+                        animation: slideIn 0.3s ease-out;
+                        max-width: 400px;
+                    }
+                    
+                    .toast-content {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        padding: 12px 16px;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                    
+                    .toast-success .toast-content {
+                        color: #1f883d;
+                    }
+                    
+                    .toast-error .toast-content {
+                        color: #d1242f;
+                    }
+                    
+                    @keyframes slideIn {
+                        from {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                    
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                
+                if (!document.querySelector('style[data-toast-styles]')) {
+                    style.setAttribute('data-toast-styles', '');
+                    document.head.appendChild(style);
+                }
+
+                document.body.appendChild(toast);
+
+                // Auto remove after 3 seconds
+                setTimeout(() => {
+                    toast.style.animation = 'slideOut 0.3s ease-in';
+                    setTimeout(() => {
+                        if (toast.parentNode) {
+                            toast.remove();
+                        }
+                    }, 300);
+                }, 3000);
             }
         }
 
